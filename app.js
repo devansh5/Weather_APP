@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'));
 let city='London'
-let apikey='e553741d54dc7d56afe2e89648cb44c2'
+let apikey=''
 let url=`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`
 
 
