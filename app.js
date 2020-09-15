@@ -10,7 +10,7 @@ app.use(bodyparser.urlencoded({extended:true}));
 app.set('view engine','ejs')
 app.use(express.static(__dirname + '/public'));
 let city='London'
-let apikey=''
+let apikey='e553741d54dc7d56afe2e89648cb44c2'
 let url=`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apikey}`
 
 
@@ -45,11 +45,10 @@ app.post('/weather',(req,res)=>{
                 description : weather_json.weather[0].description,
                 icon : weather_json.weather[0].icon
             }
-
-            let weather_data={weather:weather};
+           
         
 
-            res.render('index',weather_data)
+            res.render('index',{weather:weather,error:null})
     }
         });
         
@@ -60,7 +59,7 @@ app.post('/weather',(req,res)=>{
 
 
 
-app.get("*",(req,res)=>{
+app.get("/",(req,res)=>{
     res.send("404 PAGE NOT FOUND")
 })
 
